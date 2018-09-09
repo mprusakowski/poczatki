@@ -1,0 +1,17 @@
+package whileloop;
+
+/**
+ * Created by DEV on 2018-09-09.
+ */
+public class whileloop {
+    public static void main(String[] args) {
+        int number = 0;
+        while (true){
+            System.out.println(number);
+            number++;
+            if (number==10){
+                break;
+            }
+        }
+    }
+}
