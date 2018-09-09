@@ -1,0 +1,10 @@
+package new_package;
+
+/**
+ * Created by DEV on 2018-09-09.
+ */
+public class newClass {
+    public static void main(String[] args) {
+        
+    }
+}
