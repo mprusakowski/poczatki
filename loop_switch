@@ -1,0 +1,27 @@
+package loopswitch;
+
+/**
+ * Created by DEV on 2018-09-09.
+ */
+public class Switch {
+    public static void main(String[] args) {
+        int temperature = 35;
+        switch (temperature) {
+            case 35:
+                System.out.println("Jesteś osłabiony?");
+                //break;
+            case 36:
+                System.out.println("Wszystko w normie!");
+                break;
+            case 37:
+                System.out.println("Jesteś przeziębiony?");
+                break;
+            case 38:
+                System.out.println("Chyba jesteś chory.");
+                break;
+            default:
+                System.out.println("Nie wiem jak się czujesz :(");
+                break;
+        }
+    }
+}
