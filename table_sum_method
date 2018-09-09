@@ -1,0 +1,18 @@
+package tableSum;
+
+/**
+ * Created by DEV on 2018-09-09.
+ */
+public class TableSum {
+    public static void main(String[] args) {
+        int[] numbers = new int[]{1,2,3,4,5,6,7};
+        System.out.println(sumArray(numbers));
+    }
+    public static int sumArray(int[] numbers){
+        int sum=0;
+        for(int number: numbers){
+            sum+=number;
+        }
+        return sum;
+    }
+}
