@@ -1,0 +1,56 @@
+package oceny;
+
+import java.util.Scanner;
+
+/**
+ * Created by DEV on 2018-09-09.
+ */
+public class OcenyZtrzechPrzedmiotow {                                                  //tworzymy główną klasę
+    private final int liczbaPrzedmiotow;                                                // tworzymy końcową zmienną z ilością przedmiotów
+    private final int liczbaOcen;                                                       // tworzymy końcową zmienną z ilością ocen
+    private int[][] oceny;                                                              // tworzymy tablicę długość*wyskość, czyli numer przedmiotu to nr kolumny, nr oceny to numer wiersza
+
+    public OcenyZtrzechPrzedmiotow(int liczbaPrzedmiotow, int liczbaOcen){              //tworzymy metodę dwuargumentową
+        this.liczbaPrzedmiotow=liczbaPrzedmiotow;                                       //wskazujemy że liczba przedmiotow w tej metodzie to wcześniej zadeklarowana liczba przedmotow
+        this.liczbaOcen=liczbaOcen;                                                     // wskazujemy ze liczba ocen w tej metodzie to wczesniej zadeklarowana liczba ocen
+        zainicjujOceny();                                                               // wskazujemy ze metoda ma funkcje inizjujaca oceny
+}
+
+    private void zainicjujOceny(){                                                      // deklarujemy funkcje inicjujaca oceny
+        oceny=new int[liczbaPrzedmiotow][];
+        for (int indexPrzedmiotu=0; indexPrzedmiotu<oceny.length; indexPrzedmiotu++){   //iterujemy po kolejnych przedmiotach
+            oceny[indexPrzedmiotu]=new int[liczbaOcen];
+        }
+    }
+    public void getOcenyOdUzytkownika(){                                                // definiujemy metode pobierajaca oceny od uzytkownika
+        Scanner skaner=new Scanner(System.in);                                          //tworzymy obiekt pobierajacy wpisy uzytkownika
+        for(int indexPrzedmiotu = 0; indexPrzedmiotu<liczbaPrzedmiotow; indexPrzedmiotu++){ // iterujemy po kolejnych przedmiotach
+            for (int indexOceny=0; indexOceny<liczbaOcen; indexOceny++){                // iterujemy po kolejnych ocenach
+                System.out.println("Podaj ocenę numer " + (indexOceny+1)+" dla przedmiotu numer " + (indexPrzedmiotu+1)+": "); //rzucamy napisem z iteracja po kolumnie i po wierszu
+                oceny[indexPrzedmiotu][indexOceny]=skaner.nextInt();                    //do kolejnych iterowanych pol tablicy wrzucamy kolejne wpisy, robimy tak w petli az do zapelnienia calej tablicy
+            }
+        }
+    }
+    public void policzSrednia(){                                                        //definiujemy metode liczaca srednia
+        float calkowitaSrednia=0;                                                       // zerujemy zmienna przetrzymujaca srednia dla wszystkich ocen
+        for(int indexPrzedmiotu=0; indexPrzedmiotu<liczbaPrzedmiotow;indexPrzedmiotu++){ // iterujemy po kolejnych kolumnach
+            float sredniaPrzedmiotu=0;                                                  //zerujemy zmianna do przetrzymywania zrednia z przedmiotu (srednia z kolumny)
+            for (int ocena : oceny[indexPrzedmiotu]){
+                sredniaPrzedmiotu+=ocena;                                               // sumujemy wszystko w kolumnie
+            }
+            sredniaPrzedmiotu/=liczbaOcen;                                              // dzielimy sume z kolumny przez liczbe ocen
+            System.out.println("Średnia dla przedmiotu numer "+(indexPrzedmiotu+1)+" wynosi: " + sredniaPrzedmiotu); //bla bla bla
+            calkowitaSrednia+=sredniaPrzedmiotu;                                        //sumujemy sumy z kolejnych kolumn
+        }
+        calkowitaSrednia/=liczbaPrzedmiotow;                                            // sume sum z kolumny dzielimy przez ilosc kolumn, czyli otrzymujemy srednia wartosc kolumny
+        System.out.println("Średnia dla wszystkich przedmiotów wynosi: "+ calkowitaSrednia); // prezentujemy srednia wartosc kolumny
+    }
+
+    public static void main(String[] args){
+        int liczbaPrzedmiotow = 4;
+        int liczabaOcen=4;
+        OcenyZtrzechPrzedmiotow ocenyZtrzechPrzedmiotow=new OcenyZtrzechPrzedmiotow(liczbaPrzedmiotow,liczabaOcen); //tworzymy obiekt glownej zdefiniowanej klasy
+        ocenyZtrzechPrzedmiotow.getOcenyOdUzytkownika();                                // na tym obiekcie uruchamiamy metode pobierajaca wpisy uzytkownika
+        ocenyZtrzechPrzedmiotow.policzSrednia();                                        // na tym obiekcie uruchamiamy metode liczaca srednia z poszczegolnych kolumn oraz serdnia ze wszystkich kolumn
+    }
+}
