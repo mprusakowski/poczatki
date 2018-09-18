@@ -1,30 +1,30 @@
 package samouczek;
 
-import java.util.Scanner;
+import java.util.Scanner;                                           
 
 public class Main {
-    private Scanner scanner = new Scanner(System.in);
-    public static void main(String[] args){
-        Main main = new Main();
-        Computation computation;
+    private Scanner scanner = new Scanner(System.in);                   \\wprowadzamy zmienna scanner aby moc pobrac znak od uzytkownika
+    public static void main(String[] args){                             \\inicjujemy główną metodę
+        Main main = new Main();                                         \\tworzymy zmienna wskazujaca na główną metodę
+        Computation computation;                                        \\wprowadzamy zmienna typu computation
 
-        if (main.shouldMultiply()){
-            computation=new Multiplication();
+        if (main.shouldMultiply()){                                     \\jeżeli spełniona jest metoda shouldMultiply 
+            computation=new Multiplication();                           \\wykonujemy mnożenie
         }
-        else {
-            computation = new Addition();
+        else {                                                          \\w przeciwnym wypadku
+            computation = new Addition();                               \\wykonujemy dodawanie
         }
-        double argument1=main.getArgument();
-        double argument2=main.getArgument();
-        double result = computation.compute(argument1,argument2);
-        System.out.println("Wynik: " + result);
+        double argument1=main.getArgument();                            \\definiujemy pierwszy argument działania
+        double argument2=main.getArgument();                            \\definujemy drugi argument działania
+        double result = computation.compute(argument1,argument2);       \\definujemy zmienna result jako wynik działania na argumentach
+        System.out.println("Wynik: " + result);                         \\drukujemy na ekranie zmienna result
     }
-    private boolean shouldMultiply(){
+    private boolean shouldMultiply(){                                   \\definujemy metodę wykrywającą wybór mnożenia
         System.out.println("Jaką operację chcesz wykonać? Napisz M jeśli ma to być mnożenie i naciśnij <ENTER>. Kazdy inny wybór oznacza dodawanie");
-        return scanner.next().equals("M");
+        return scanner.next().equals("M");                              \\wybór działania następuje poprzez wpisanie odpowiedniej litery
     }
-    private double getArgument(){
+    private double getArgument(){                                       \\definujemy metodę pobierającą argumenty działania
         System.out.println("Podaj liczbę: ");
-        return scanner.nextDouble();
+        return scanner.nextDouble();                                    \\i zapisujemy je jako double
     }
 }
