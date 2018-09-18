@@ -1,8 +1,8 @@
 package samouczek;
 
-public class Addition implements Computation {
-    @Override
-    public double compute(double arg1, double arg2){
-        return arg1 + arg2;
+public class Addition implements Computation {              \\tworzymy klasę Addiction implementującą interfejs Computation
+    @Override                                               \\nadpisujemy interfejs
+    public double compute(double arg1, double arg2){        \\definujemy funkcje dla Addiction, ktora zwraca double, ma dwa argumenty typu double
+        return arg1 + arg2;                                 \\i zwraca sume argumentow
     }
 }
