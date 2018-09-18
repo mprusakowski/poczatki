@@ -1,5 +1,5 @@
 package samouczek;
 
-public interface Computation {
-    double compute(double arg1, double arg2);
+public interface Computation {                      \\tworzymy publiczny interfejs Computation
+    double compute(double arg1, double arg2);       \\definujemy w interfejsie funkcję compute zwracajaca double z dwoma argumentami typu double
 }
