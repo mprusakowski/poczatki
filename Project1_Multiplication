@@ -1,8 +1,8 @@
 package samouczek;
 
-public class Multiplication implements Computation {
-    @Override
-    public double compute(double arg1, double arg2){
-        return arg1*arg2;
+public class Multiplication implements Computation {           \\definujemy klasę Multiplication implementującą interfejs Computation
+    @Override                                                  \\nadpisujemy interfejs
+    public double compute(double arg1, double arg2){           \\definujemy funkcje compute wewnętrz Multiplication która zwraca typ double i ma dwa argumenty typu double
+        return arg1*arg2;                                      \\definujemy w jakiej postaci funkcja ma zwracac wynik
     }
 }
